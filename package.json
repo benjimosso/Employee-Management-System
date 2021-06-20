@@ -1,0 +1,25 @@
+{
+    "name": "employee-management-system",
+    "version": "1.0.0",
+    "description": "Employee Management System application",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm test",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/benjimosso/Employee-Management-System.git"
+    },
+    "author": "Daniel Mosso",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/benjimosso/Employee-Management-System/issues"
+    },
+    "homepage": "https://github.com/benjimosso/Employee-Management-System#readme",
+    "dependencies": {
+        "console.table": "^0.10.0",
+        "inquirer": "^8.1.1",
+        "mysql": "^2.18.1"
+    }
+}
