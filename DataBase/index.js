@@ -8,7 +8,7 @@ class Employee_DB {
     }
 
     TodosEmployees() {
-        const query = 'SELECT employee.first_name, employee.last_name, role.title, role.salary, department.department  FROM employee INNER join role on (employee.role_id = role.id) join department on (department_id = department.id)';
+        const query = 'SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.department  FROM employee INNER join role on (employee.role_id = role.id) join department on (department_id = department.id)';
         return this.connection.promise().query(query)
     }
 
@@ -27,8 +27,8 @@ class Employee_DB {
             return this.connection.promise().query("INSERT INTO employee SET ?", employee);
         }
         // Function in progress... 
-    RemoveEmployee(employee) {
-        return this.connection.promise().query("DELETE FROM `mgmemployee_db`.`employee` WHERE (`id` = ?);", employee);
+    RemoveEmployee(employeeId) {
+        return this.connection.promise().query("DELETE FROM `mgmemployee_db`.`employee` WHERE (`id` = ?);", employeeId);
     }
 
 

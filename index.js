@@ -117,6 +117,7 @@ function AddEmployee() {
                         })
                         .then(res => {
                             let roleId = res.roleId;
+                            console.log(roleId)
 
                             db.TodosEmployees()
                                 .then(([rows]) => {
@@ -172,6 +173,7 @@ function UpdateRole() {
                 }])
                 .then(res => {
                     let employeeId = res.employeeId;
+                    console.log(employeeId)
                     db.allRoles()
                         .then(([rows]) => {
                             let roles = rows;
@@ -191,6 +193,28 @@ function UpdateRole() {
                                 .then(() => StartPrompts())
                         });
                 });
+        })
+}
+
+
+function RemoveEmployee() {
+    db.TodosEmployees()
+        .then(([rows]) => {
+            let employees = rows;
+            const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+                name: `${first_name} ${last_name}`,
+                value: id
+            }))
+            inquirer
+                .prompt([{
+                    type: "list",
+                    name: "employeeId",
+                    message: "Which employee do you want to delete?",
+                    choices: employeeChoices
+                }])
+                .then(res => db.updateEmployeeRole(res.employeeId))
+                .then(() => console.log("Employee Deleted"))
+                .then(() => StartPrompts())
         })
 }
 
