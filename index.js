@@ -25,12 +25,62 @@ const StartPrompts = () => {
             switch (answer.action) {
                 case 'View All Employees':
                     FindEmloyees()
+                    break;
+
+                case 'View All Employees by Department':
+                    ByDepartment()
+                    break;
+
+                case 'View All Employees by Manager ':
+                    ByManager()
+                    break;
+
+                case 'Add Employee':
+                    AddEmployee()
+                    break;
+
+                case 'Remove Employee':
+                    RemoveEmployee()
+                    break;
+
+                case 'Update Employee Role':
+                    UpdateRole()
+                    break;
+
+                case 'Update Employee Manager':
+                    UpdateManager()
+                    break;
+
             }
         })
 }
 
-const FindEmloyees = () => {
-    console.log('Testeo de funcion.')
+function FindEmloyees() {
+    db.TodosEmployees()
+        .then(([rows]) => {
+            let result = rows
+            console.table(result)
+        })
+        .then(() => StartPrompts())
+}
+
+function ByDepartment() {
+    inquirer
+        .prompt([{
+            name: 'department',
+            type: 'rawlist',
+            message: 'Chose the department you want to see employees from.',
+            choices: [
+                'Human Resources',
+                'Finance',
+                'IT',
+                'Engineering'
+            ]
+
+        }])
+        .then((answer) => {
+            db.PorDepartment(answer.department)
+        })
 }
 
 function Init() {

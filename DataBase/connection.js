@@ -1,5 +1,6 @@
-const mysql = require('mysql');
-const inquirer = require('inquirer');
+const mysql = require('mysql2');
+
+
 
 // create the connection information for the sql database
 const connection = mysql.createConnection({
@@ -14,6 +15,10 @@ const connection = mysql.createConnection({
     // Your password
     password: 'password123',
     database: 'mgmEmployee_db',
+});
+
+connection.connect(function(err) {
+    if (err) throw err;
 });
 
 module.exports = connection;
