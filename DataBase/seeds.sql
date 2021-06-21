@@ -1,11 +1,11 @@
 USE mgmEmployee_db
 
-INSERT INTO department (name) 
+INSERT INTO department (department) 
 VALUES 
     ('Human Resources'),
     ('Finance'),
     ('IT'),
-    ('Enginieering')
+    ('Engineering')
 
 INSERT INTO role
     (title, salary, department_id)
@@ -31,4 +31,4 @@ VALUES
     ('Eva', 'Ardiles', 6, 5),
     ('Matias', 'Suarez', 6, 5),
     ('Nicolas', 'DeLaCruz', 7, NULL),
-    ('Vera', 'Baggio', 8, 8);
+    ('Vera', 'Baggio', 8, 7);

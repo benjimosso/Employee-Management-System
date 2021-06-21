@@ -5,7 +5,7 @@ USE mgmEmployee_db;
 
 CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
+  department VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 )
 
