@@ -20,7 +20,10 @@ Application to manage employees on a company
 ```
 <a name="usage"></a>
 ## Usage :green_book:
-to run the application, run the command node index.js
+to run the application, run this command:
+```
+- node index.js
+```
 <a name="license"></a>
 ## License :scroll:
 **This project is license under the ISC license**
